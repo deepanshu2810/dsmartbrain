@@ -17,11 +17,11 @@ const db= knex({
 
 });
 
-db.select('*').from('users')
-.then(data => {
-    console.log(data);
+// db.select('*').from('users')
+// .then(data => {
+//     console.log(data);
 
-})
+// })
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -56,7 +56,7 @@ const database ={
 
 
 app.get('/',(req,res)=>{
-    res.send(database.users);
+    res.send("database.users");
 })
 
 app.post('/signin',(req,res)=>{
@@ -166,6 +166,6 @@ app.put('/image',(req,res)=>{
 //     // res = false
 // });
 
-app.listen(3001,()=>{
+app.listen(process.env.PORT ||3001,()=>{
     console.log('app is running');
 })
